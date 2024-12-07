@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const Liton ={
+            name: 'Liton',
+            height:1.69,
+            mass:92,
+            calBmi: function(){
+                return this.bmi = this.mass/this.height*2;
+            }
+        }
+
+        const Nurul = {
+            name:"Nurul",
+            height:1.48,
+            mass:96,
+            calBmi: function(){
+                return this.bmi = this.mass / this.height *2;
+            }
+        }
+        Liton.calBmi();
+        Nurul.calBmi();
+
+
+        if(Liton.bmi > Nurul.bmi){
+            console.log(`${Liton.name} 's BMI ${Liton.bmi}`);
+        }else if( Nurul.bmi > Liton.bmi ){
+            console.log(`${Nurul.name} 's BMI ${Nurul.bmi}`);
+        }
+        // console.log(Liton.bmi);
+    </script>
+</body>
+</html>
