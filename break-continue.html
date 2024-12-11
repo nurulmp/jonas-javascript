@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>break</title>
+  </head>
+  <body>
+    <script>
+      const liton = [
+        "Liton",
+        "Nurul",
+        2037 - 1991,
+        "teacher",
+        ["abid", "rajjak", "sabbir"],
+        true,
+      ];
+
+      //   const types = [];
+
+      //   for (let i = 0; i < liton.length; i++) {
+      //     console.log(liton[i], typeof liton[i]);
+      //     // types[i] = typeof liton[i];
+      //     types.push(liton[i]);
+      //   }
+      //   console.log(types);
+
+      for (let i = 0; i < liton.length; i++) {
+        if (typeof liton[i] !== "string") continue;
+        console.log(liton[i], typeof liton[i]);
+      }
+    </script>
+  </body>
+</html>
