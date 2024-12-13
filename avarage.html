@@ -8,7 +8,7 @@
   <body>
     <script>
       function calTips(bill) {
-        return bill;
+        return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
       }
 
       const bills = [22, 295, 440, 45, 105, 1120, 43, 52];
@@ -16,8 +16,11 @@
       const total = [];
 
       for (let i = 0; i < bills.length; i++) {
-        const bill = calTips[i];
+        const tip = calTips(bills[i]);
+        tips.push(tip);
+        total.push(tip + bills[i]);
       }
+      console.log(tips, total, bills);
     </script>
   </body>
 </html>
