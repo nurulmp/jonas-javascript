@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         const calcTempAmp = function(temps){
+        let max =temps[0];
+        for(let i = 0 ; i < temps.length; i++){
+            if(temps[i] > max  ) max = temps[i]
+        } 
+        console.log(max)
+    }
+    calcTempAmp([3,7,4])
+    </script>
+   
+</body>
+</html>
