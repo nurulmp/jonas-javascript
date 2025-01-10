@@ -8,13 +8,36 @@
 </head>
 <body>
     <script>
-         const calcTempAmp = function(temps){
-        let max =temps[0];
-        for(let i = 0 ; i < temps.length; i++){
-            if(temps[i] > max  ) max = temps[i]
-        } 
-        console.log(max)
-    }
+      //   const calcTempAmp = function(temps){
+    //     let max =temps[0];
+    //     let min =temps[0];
+    //     for(let i = 0 ; i < temps.length; i++){
+    //         const tempIn= temps[i];
+    //         if(typeof tempIn !== 'number') continue;
+    //         if(tempIn > max  ) max = tempIn;
+    //     } 
+
+    //     for(let i = 0 ; i < temps.length; i++){
+    //         const tempIn= temps[i];
+    //         if( tempIn < min) min = tempIn;
+    //     }
+    //     console.log(max)
+    //     console.log(min);
+    // }
+
+        const calcTempAmp = function(temps){
+            let max = temps[0];
+            let min = temps[0];
+
+            for( let i = 0 ; i <temps.length; i ++){
+                const tempCount = temps[i];
+                if(tempCount > max) max= tempCount;
+                if (tempCount < min) min =tempCount;
+            }
+          console.log(max);
+          console.log(min);
+        }
+
     calcTempAmp([3,7,4])
     </script>
    
