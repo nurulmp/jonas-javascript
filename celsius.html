@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        const celFunction = function (temps){
+
+            let text = '';
+
+            for(let i = 0 ; i < temps.length; i++){
+                    text += `${temps[i]}c.. in ${i + 1} days`;
+            }
+            console.log(text);
+
+        }
+
+        celFunction([22,44,14]);
+    </script>
+</body>
+</html>
