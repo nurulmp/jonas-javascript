@@ -25,12 +25,12 @@ header .title {
     font-weight: 600;
 
 }
-header .number{
+header .numbers{
     text-align: center;
     position: relative;
 }
 
-header .number::before{
+header .numbers::before{
     position: absolute;
     content: '';
     top: 50%;
@@ -41,7 +41,7 @@ header .number::before{
     z-index: -1;
 }
 
-header .number span{
+header .numbers span{
     background: #fff;
     color:#0c0b0b;
     font-weight: 500;
@@ -59,9 +59,7 @@ header .number span{
     padding: 10px 25px;
     font-size: 24px;
 }
-.left{
-    /* width: 50%; */
-}
+
 .left .guess {
 	border: 1px solid #fff;
 	background: transparent;
