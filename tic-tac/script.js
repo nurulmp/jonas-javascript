@@ -22,5 +22,14 @@ cells.forEach((cell,index) => {
 });
 
 function tapCell(cell,index){
-    console.log(cell);
+    if(cell.textContent == '' && !isPushGame){
+        isGameStart = true;
+        updateCell(cell,index)
+    }
+}
+
+function  updateCell(cell,index){
+    cell.textContent = player;
+    inputCells[index] = player
+    console.log(inputCells);
 }
