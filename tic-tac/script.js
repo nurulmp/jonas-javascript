@@ -25,11 +25,19 @@ function tapCell(cell,index){
     if(cell.textContent == '' && !isPushGame){
         isGameStart = true;
         updateCell(cell,index)
+        if(!winerPlayer){
+            changePlayer();
+        }
     }
 }
 
 function  updateCell(cell,index){
     cell.textContent = player;
-    inputCells[index] = player
-    console.log(inputCells);
+    inputCells[index] = player;
+    cell.style.color = (player =='X') ? ' #1892EA' : '#fff';
+   
+}
+
+function changePlayer(){
+    player =(player == 'X') ? 'O' : 'X';
 }
