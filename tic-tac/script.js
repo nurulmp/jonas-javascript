@@ -25,7 +25,7 @@ function tapCell(cell,index){
     if(cell.textContent == '' && !isPushGame){
         isGameStart = true;
         updateCell(cell,index)
-        if(!winerPlayer){
+        if(!checkWinner()){
             changePlayer();
         }
     }
@@ -41,3 +41,39 @@ function  updateCell(cell,index){
 function changePlayer(){
     player =(player == 'X') ? 'O' : 'X';
 }
+function checkWinner(){
+    for(const [a, b, c] of winCondition){
+        if(inputCells[a] == player && 
+            inputCells[b] == player &&
+            inputCells[c] == player
+        ){
+            declearWinner([a ,b ,c])
+            return true;
+        }
+    }
+}
+
+function declearWinner(winningIndices){
+    titleHeader.textContent = `${player} win`;
+    isPushGame = true;
+
+    //hight light cell
+
+    winningIndices.forEach ((index) =>
+        cells[index].style.background = "#2A2343"
+    )
+
+    restartBtn.style.visibility= 'visible'
+}
+
+restartBtn.addEventListener('click',()=>{
+    restartBtn.style.visibility= 'hidden';
+    inputCells.fill('');
+    cells.forEach(cell =>{
+        cell.textContent = '';
+        cell.style.background = '';
+        isPushGame = false;
+        isGameStart = false;
+        titleHeader.textContent = 'choose';
+    })
+})
