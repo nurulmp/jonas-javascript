@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const resturant = {
+        name: "Classico Italiano",
+        location: "Via Angelo Tavanti 23, Firenze, Italy",
+        categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
+        starterMenu: [
+          "Focaccia",
+          "Bruschetta",
+          "Garlic Bread",
+          "Caprese Salad",
+        ],
+        mainMenu: ["Pizza", "Pasta", "Risotto"],
+        openingHours: {
+          thu: {
+            open: 12,
+            close: 22,
+          },
+          fri: {
+            open: 11,
+            class: 23,
+          },
+          sat: {
+            open: 0,
+            close: 24,
+          },
+        },
+        order: function (starterIndex, mainIndex) {
+          return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+        },
+      };
+      console.log(resturant.order);
+    </script>
+  </body>
+</html>
