@@ -6,6 +6,7 @@
     <title>Document</title>
   </head>
   <body>
+    <h1>destructruing and spread</h1>
     <script>
       const resturant = {
         name: "Classico Italiano",
@@ -25,7 +26,7 @@
           },
           fri: {
             open: 11,
-            class: 23,
+            close: 23,
           },
           sat: {
             open: 0,
@@ -35,8 +36,34 @@
         order: function (starterIndex, mainIndex) {
           return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
         },
+        orderPasta: function (ing1, ing2, ing3) {
+          console.log(`here is ${ing1}, ${ing2}, and ${ing3}`);
+        },
       };
-      console.log(resturant.order);
+      const { name, openingHours, categories } = resturant;
+      console.log(name, openingHours, categories);
+
+      const {
+        name: resturantName,
+        openingHours: hours,
+        categories: tags,
+      } = resturant;
+      console.log(resturantName, hours, tags);
+
+      //spread
+      const newResturant = { ...resturant, founder: "Nurul liton" };
+      const newMenu = [...resturant.mainMenu, "chicken", "popcorn"];
+      console.log(newMenu);
+      const str = "Nurul liton";
+      console.log(...str);
+      const ingredients = [
+        prompt("Let's make pasta ingredient 1 ?"),
+        prompt("ingredient 2?"),
+        prompt("ingredient 3?"),
+      ];
+      console.log(ingredients);
+      // resturant.orderPasta(ingredients[0], ingredients[1], ingredients[3]);
+      resturant.orderPasta(...ingredients);
     </script>
   </body>
 </html>
