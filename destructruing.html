@@ -56,14 +56,38 @@
       console.log(newMenu);
       const str = "Nurul liton";
       console.log(...str);
-      const ingredients = [
-        prompt("Let's make pasta ingredient 1 ?"),
-        prompt("ingredient 2?"),
-        prompt("ingredient 3?"),
-      ];
-      console.log(ingredients);
+
+      // const ingredients = [
+      //   prompt("Let's make pasta ingredient 1 ?"),
+      //   prompt("ingredient 2?"),
+      //   prompt("ingredient 3?"),
+      // ];
+      // console.log(ingredients);
+
       // resturant.orderPasta(ingredients[0], ingredients[1], ingredients[3]);
-      resturant.orderPasta(...ingredients);
+      // resturant.orderPasta(...ingredients);
+
+      const arr = [1, 2, ...[3, 4]];
+      const [a, b, ...others] = arr;
+      console.log(a, b, others);
+
+      const [pizza, risotto, ...otherFood] = [
+        ...resturant.mainMenu,
+        ...resturant.starterMenu,
+      ];
+      console.log(pizza, risotto, otherFood);
+
+      //the off loop
+
+      const menu = [...resturant.starterMenu, ...resturant.mainMenu];
+      for (const [i, el] of menu.entries()) {
+        console.log(`${i + 1} : ${el}`);
+      }
+
+      const menu2 = [...resturant.starterMenu, ...resturant.mainMenu];
+      for (const [i, el] of menu2.entries()) {
+        console.log(`${i + 1} : ${el}`);
+      }
     </script>
   </body>
 </html>
