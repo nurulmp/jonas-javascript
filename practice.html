@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const poll = {
+        question: "what is your favourite programming language?",
+
+        options: ["0: javascript", "1:python", "2:rust", "3:c++"],
+        answers: new Array(4).fill(0),
+        registerNewAnswer() {
+          const answer = Number(
+            prompt(
+              `${this.question}\n ${this.options.join(
+                "\n"
+              )}\n(write option number)`
+            )
+          );
+          // console.log(answer);
+          // register answer
+          typeof answer === "number" &&
+            answer < this.answers.length &&
+            this.answers[answer]++;
+        },
+      };
+      console.log(poll.registerNewAnswer());
+    </script>
+  </body>
+</html>

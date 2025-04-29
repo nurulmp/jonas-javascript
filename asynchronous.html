@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const paymentSuccess = true;
+      const marks = 70;
+
+      function enroll(callback) {
+        console.log("Course enrollment is in progress");
+        const promise = new Promise(function (resolve, reject) {
+          setTimeout(function () {
+            if (paymentSuccess) {
+              resolve();
+            } else {
+              reject("payment failed");
+            }
+          }, 2000);
+        });
+        return promise;
+      }
+
+      function progress(callback) {
+        console.log("course on progress");
+        const promise = new Promise(function (resolve, reject) {
+          setTimeout(function () {
+            if (marks >= 80) {
+              resolve();
+            } else {
+              reject("not enough marks to get the certificate");
+            }
+          }, 3000);
+        });
+        return promise;
+      }
+
+      function getCertificate() {
+        console.log("preparing your certificate");
+        const promise = new Promise(function (resolve, reject) {
+          setTimeout(function () {
+            console.log("congrats you got the certificate");
+          }, 1000);
+        });
+        return promise;
+      }
+      enroll()
+        .then(progress)
+        .then(getCertificate)
+        .catch(function (err) {
+          console.log(err);
+        });
+    </script>
+  </body>
+</html>
