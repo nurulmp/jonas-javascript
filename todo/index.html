@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Todo app Student Add</title>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>javascript Todo app Student Add</h1>
+    <div class="from-and-table">
+    <div class="form-section">
+      <input type="text" placeholder="name...." id="name">
+      <input type="text" placeholder="id...." id="id">
+      <input type="text" placeholder="Dept...." id="dep">
+      <input type="text" placeholder="Gpa...." id="gpa">
+      <button id="add-student">Add student</button>
+    </div>
+
+    <div class="table-section">
+      <table>
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>Id</th>
+            <th>Dept</th>
+            <th>Gpa</th>
+          </tr>
+        </thead>
+        <tbody id="student-list">
+          <!-- Static table for now -->
+          
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById('add-student').addEventListener('click' , () =>{
+
+        const name = document.getElementById('name').value;
+        const id = document.getElementById('id').value;
+        const dep = document.getElementById('dep').value;
+        const gpa = document.getElementById('gpa').value;
+
+        if(name && id && dep && gpa){
+            const studentList= document.getElementById('student-list');
+            const row = studentList.insertRow();
+            row.innerHTML = `<td>${name}</td><td>${id}</td><td>${dep}</td><td>${gpa}</td>`;
+             document.getElementById('name').value ='';
+             document.getElementById('id').value ='';
+             document.getElementById('dep').value ='';
+             document.getElementById('gpa').value ='';
+        }else{
+            console.log('required filed');
+        }
+    });
+  </script>
+</body>
+</html>
