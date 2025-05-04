@@ -7,17 +7,16 @@
   </head>
   <body>
     <script>
-      const paymentSuccess = true;
+      const paymentSuccessful = true;
       const marks = 70;
-
       function enroll() {
-        console.log("Course enrollment is in progress");
+        console.log("enroll pending");
         const promise = new Promise(function (resolve, reject) {
-          setTimeout(function () {
-            if (paymentSuccess) {
-              resolve();
+          setTimeout(() => {
+            if (paymentSuccessful) {
+              resolve("all done");
             } else {
-              reject("payment failed");
+              reject("payment faild");
             }
           }, 2000);
         });
@@ -29,30 +28,17 @@
         const promise = new Promise(function (resolve, reject) {
           setTimeout(function () {
             if (marks >= 80) {
-              resolve();
+              resolve("get certificate");
             } else {
-              reject("not enough marks to get the certificate");
+              reject("marks not enough");
             }
           }, 3000);
         });
         return promise;
       }
 
-      function getCertificate() {
-        console.log("preparing your certificate");
-        const promise = new Promise(function (resolve, reject) {
-          setTimeout(function () {
-            console.log("congrats you got the certificate");
-          }, 1000);
-        });
-        return promise;
-      }
       enroll()
         .then(progress)
-        .then(getCertificate)
-        .then(function (value) {
-          console.log(` value is ${value}`);
-        })
         .catch(function (err) {
           console.log(err);
         });
