@@ -77,3 +77,9 @@ const displayMovments = function (movements) {
   });
 };
 displayMovments(account1.movements);
+
+const calcPrintBlance = function(movements){
+  const blacne = movements.reduce((acc,curentValue) => acc + curentValue,0);
+  labelBlance.textContent = `${blacne}EUR`
+}
+calcPrintBlance(account1.movements)
