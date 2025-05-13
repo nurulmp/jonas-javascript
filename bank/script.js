@@ -78,8 +78,20 @@ const displayMovments = function (movements) {
 };
 displayMovments(account1.movements);
 
-const calcPrintBlance = function(movements){
-  const blacne = movements.reduce((acc,curentValue) => acc + curentValue,0);
-  labelBlance.textContent = `${blacne}EUR`
-}
-calcPrintBlance(account1.movements)
+const calcPrintBlance = function (movements) {
+  const blacne = movements.reduce((acc, curentValue) => acc + curentValue, 0);
+  labelBlance.textContent = `${blacne}EUR`;
+};
+calcPrintBlance(account1.movements);
+
+const createUsernames = function (accounts) {
+  accounts.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(" ")
+      .map((name) => name[0])
+      .join("");
+  });
+};
+createUsernames(accounts);
+console.log(accounts);
