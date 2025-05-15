@@ -95,3 +95,15 @@ const createUsernames = function (accounts) {
 };
 createUsernames(accounts);
 console.log(accounts);
+
+const calcDisplaySummery = function(movements){
+  const income = movements.filter((move) => move > 0)
+  .reduce((acc, move) => acc+move,0);
+  labelSumIn.textContent =`${income}€`
+
+   const out = movements.filter((move) => move < 0)
+  .reduce((acc, move) => acc+move,0);
+  labelSumOut.textContent =`${out}€`
+}
+
+calcDisplaySummery(account1.movements);
