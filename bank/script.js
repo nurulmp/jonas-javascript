@@ -96,14 +96,22 @@ const createUsernames = function (accounts) {
 createUsernames(accounts);
 console.log(accounts);
 
-const calcDisplaySummery = function(movements){
-  const income = movements.filter((move) => move > 0)
-  .reduce((acc, move) => acc+move,0);
-  labelSumIn.textContent =`${income}€`
+const calcDisplaySummery = function (movements) {
+  const income = movements
+    .filter((move) => move > 0)
+    .reduce((acc, move) => acc + move, 0);
+  labelSumIn.textContent = `${income}€`;
 
-   const out = movements.filter((move) => move < 0)
-  .reduce((acc, move) => acc+move,0);
-  labelSumOut.textContent =`${out}€`
-}
+  const out = movements
+    .filter((move) => move < 0)
+    .reduce((acc, move) => acc + move, 0);
+  labelSumOut.textContent = `${out}€`;
+
+  const interest = movements
+    .filter((mov) => mov > 0)
+    .map((deposit) => (deposit * 1.2) / 100)
+    .filter((int, i, arr) => {})
+    .reduce();
+};
 
 calcDisplaySummery(account1.movements);
