@@ -96,12 +96,13 @@ body {
 }
 
 .scene__light-middle {
-  bottom: calc(var(--index) * -34.42);
+  bottom: calc(var(--index) * -37.42);
   left: calc(var(--index) * -12.41);
   -webkit-transform: rotate(167deg);
   -ms-transform: rotate(167deg);
   transform: rotate(167deg);
   z-index: 10;
+  opacity: 0.7;
 }
 
 .scene__light-middle img {
@@ -155,7 +156,7 @@ body {
 
 .scene__tree-2-right {
   bottom: calc(var(--index) * -0.4);
-  left: calc(var(--index) * 19.6);
+  left: calc(var(--index) * 24.6);
   z-index: 8;
 }
 
@@ -181,13 +182,12 @@ body {
 
 .scene__tree-3-right {
   bottom: calc(var(--index) * -0.2);
-  left: calc(var(--index) * 39.6);
+  left: calc(var(--index) * 40.6);
 }
 
 .scene__tree-3-right img {
   height: calc(var(--index) * 26.95);
 }
-
 .scene__mountain-1-left,
 .scene__mountain-1-right {
   z-index: 7;
@@ -206,7 +206,7 @@ body {
 
 .scene__mountain-1-right {
   bottom: calc(var(--index) * -0.1);
-  left: calc(var(--index) * 26.5);
+  left: calc(var(--index) * 27.5);
 }
 
 .scene__mountain-1-right img {
@@ -395,7 +395,7 @@ body {
 
 .scene__mountain-8-right {
   bottom: calc(var(--index) * 2.02);
-  left: calc(var(--index) * 41.5);
+  left: calc(var(--index) * 42.5);
 }
 
 .scene__mountain-8-right img {
@@ -455,143 +455,6 @@ body {
   margin-left: -30px;
 }
 
-.scene__city-1-left,
-.scene__city-1-right {
-  z-index: 8;
-}
-
-.scene__city-1-left img,
-.scene__city-1-right img {
-  margin-bottom: -15px;
-}
-
-.scene__city-1-left {
-  bottom: calc(var(--index) * -3.1);
-  left: calc(var(--index) * -3);
-}
-
-.scene__city-1-left img {
-  height: calc(var(--index) * 29.61);
-  margin-left: -15px;
-}
-
-.scene__city-1-right {
-  bottom: calc(var(--index) * -4.7);
-  left: calc(var(--index) * 35.5);
-}
-
-.scene__city-1-right img {
-  height: calc(var(--index) * 31.47);
-  margin-right: -15px;
-}
-
-.scene__city-2-left,
-.scene__city-2-right {
-  z-index: 7;
-}
-
-.scene__city-2-left img,
-.scene__city-2-right img {
-  margin-bottom: -15px;
-}
-
-.scene__city-2-left {
-  bottom: 0;
-  left: calc(var(--index) * 15.7);
-}
-
-.scene__city-2-left img {
-  height: calc(var(--index) * 26.42);
-  margin-left: -15px;
-}
-
-.scene__city-2-right {
-  bottom: calc(var(--index) * -0.3);
-  left: calc(var(--index) * 38.3);
-}
-
-.scene__city-2-right img {
-  height: calc(var(--index) * 24);
-  margin-right: -15px;
-}
-
-.scene__city-3-left {
-  bottom: calc(var(--index) * -1.5);
-  left: calc(var(--index) * 22.8);
-  z-index: 6;
-}
-
-.scene__city-3-left img {
-  height: calc(var(--index) * 24.63);
-  margin-bottom: -15px;
-  margin-left: -15px;
-}
-
-.scene__city-3-right {
-  bottom: calc(var(--index) * -11.4);
-  left: calc(var(--index) * 24.7);
-  z-index: 5;
-}
-
-.scene__city-3-right img {
-  height: calc(var(--index) * 28.21);
-  margin-bottom: -15px;
-  margin-right: -15px;
-}
-
-.scene__city-4-left,
-.scene__city-4-right {
-  margin-bottom: -15px;
-  z-index: 4;
-}
-
-.scene__city-4-left {
-  bottom: calc(var(--index) * -8.8);
-  left: calc(var(--index) * 27);
-}
-
-.scene__city-4-left img {
-  height: calc(var(--index) * 29.9);
-  margin-left: -15px;
-}
-
-.scene__city-4-right {
-  bottom: 0;
-  left: calc(var(--index) * 37.7);
-}
-
-.scene__city-4-right img {
-  height: calc(var(--index) * 23.47);
-  margin-right: -15px;
-}
-
-.scene__city-5-left,
-.scene__city-5-right {
-  z-index: 9;
-}
-
-.scene__city-5-left {
-  bottom: calc(var(--index) * -10.2);
-  left: calc(var(--index) * -6);
-}
-
-.scene__city-5-left img {
-  height: calc(var(--index) * 36.84);
-  margin-bottom: -15px;
-  margin-left: -15px;
-}
-
-.scene__city-5-right {
-  bottom: calc(var(--index) * -9.1);
-  left: calc(var(--index) * 57.6);
-}
-
-.scene__city-5-right img {
-  height: calc(var(--index) * 38.84);
-  margin-bottom: -30px;
-  margin-right: -30px;
-}
-
 .scene__tea {
   bottom: calc(var(--index) * -2.8);
   left: 0;
@@ -600,6 +463,25 @@ body {
 
 .scene__tea img {
   height: calc(var(--index) * 16.74);
+}
+.scene_alien-vehicle{
+  bottom: calc(var(--index) * 6.1);
+  left: calc(var(--index) * 25.6);
+  width: calc(var(--index) * 20);
+  z-index: 11;
+}
+.scene_error{
+  bottom: calc(var(--index) * 3.1);
+  left: calc(var(--index) * 23.6);
+  width: calc(var(--index) * 18);
+  z-index: 10;
+}
+.scene_leaves_home-button{
+  bottom: calc(var(--index) * 0);
+  left: calc(var(--index) * 27.6);
+  width: calc(var(--index) * 10);
+  z-index: 12;
+  pointer-events:visible;
 }
 
 @media (max-width: 1199px) and (orientation: portrait) {
@@ -756,8 +638,8 @@ body {
     left: calc(var(--index) * 44.6);
   }
 
-  .scene__tea {
-    left: calc(var(--index) * -13);
+  .scene_alien-vehicle{
+    left: calc(var(--index) * 5);
   }
 }
 
