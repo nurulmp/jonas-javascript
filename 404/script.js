@@ -4,7 +4,7 @@
   function initSceneAnimations() {
     const sceneTimeline = gsap.timeline({
       defaults: {
-        duration: 1.1,
+        duration: 1.5,
         ease: "cubic-bezier(.05, .5, 0, 1)",
       },
     });
@@ -12,6 +12,7 @@
     sceneTimeline
       .from(".scene__sun", { y: "100%", scale: 0.7, opacity: 0.3 })
       .from(".scene__light", { y: "30%", scale: 0.8, opacity: 0 }, "<+=0.8")
+      .from(".scene__light-small", { y: "30%", scale: 0.8, opacity: 0 }, "<")
       .from(".scene__tree-left", { x: "-100vw" }, "<")
       .from(".scene__tree-right", { x: "100vw" }, "<")
       .from(
@@ -75,14 +76,14 @@
       .fromTo(
         ".scene_error",
         { x: "-100vw", opacity: 0, scale: 1.2 },
-        { x: 0, opacity: 1, scale: 1, duration: 1, delay: 3 },
+        { x: 0, opacity: 1, scale: 1, duration: 1, delay: 1 },
         "<-=0.5"
       )
 
       .from(".scene_alien-vehicle", { y: "-100vw", duration: 3 }, "<+=0.5")
       .to(".scene_alien-vehicle", {
         y: "-15",
-        duration: 1,
+        duration: 1.2,
         repeat: -1,
         yoyo: true,
         ease: "power1.inOut",
@@ -110,7 +111,7 @@
         ".scene_error",
         {
           y: "-=15",
-          duration: 1,
+          duration: 1.2,
           repeat: -1,
           yoyo: true,
           ease: "power1.inOut",
@@ -122,10 +123,10 @@
       .to(
         ".scene__tree-2-right, .scene__mountain-6-left, .scene__cloud-2-left",
         { opacity: 0 },
-        "<+=2.5"
+        "<-=2.5"
       )
       .from(
-        ".scene_leaves_home-button",
+        ".scene_leaf_home-button",
         {
           x: "-50vh",
           y: "-100px",

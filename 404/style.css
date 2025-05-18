@@ -476,7 +476,7 @@ body {
   width: calc(var(--index) * 18);
   z-index: 10;
 }
-.scene_leaves_home-button{
+.scene_leaf_home-button{
   bottom: calc(var(--index) * 0);
   left: calc(var(--index) * 27.6);
   width: calc(var(--index) * 10);
@@ -601,45 +601,14 @@ body {
     left: calc(var(--index) * 2);
   }
 
-  .scene__city-1-left {
-    left: calc(var(--index) * -16);
+  .scene_error{
+    left: calc(var(--index) * 6);
   }
-
-  .scene__city-1-right {
-    left: calc(var(--index) * 22.5);
-  }
-
-  .scene__city-2-left {
-    left: calc(var(--index) * 2.7);
-  }
-
-  .scene__city-2-right {
-    left: calc(var(--index) * 25.3);
-  }
-
-  .scene__city-3-left {
-    left: calc(var(--index) * 9.8);
-  }
-
-  .scene__city-3-right,
-  .scene__city-4-left {
-    left: calc(var(--index) * 9.9);
-  }
-
-  .scene__city-4-right {
-    left: calc(var(--index) * 24.7);
-  }
-
-  .scene__city-5-left {
-    left: calc(var(--index) * -19);
-  }
-
-  .scene__city-5-right {
-    left: calc(var(--index) * 44.6);
-  }
-
   .scene_alien-vehicle{
-    left: calc(var(--index) * 5);
+    left: calc(var(--index) * 8);
+  }
+   .scene_leaf_home-button{
+    left: calc(var(--index) * 12);
   }
 }
 
