@@ -4,8 +4,8 @@
   function initSceneAnimations() {
     const sceneTimeline = gsap.timeline({
       defaults: {
-        duration: 1.9,
-          ease: "cubic-bezier(.05, .5, 0, 1)"
+        duration: 1.1,
+        ease: "cubic-bezier(.05, .5, 0, 1)",
       },
     });
 
@@ -69,29 +69,76 @@
         { opacity: 0, scale: 1.2 },
         "<"
       )
-      
-      .fromTo(".scene_error", { x: "-100vw", opacity: 0, scale: 1.2 }, { x: 0, opacity: 1, scale: 1, duration: 1, delay: 3 }, "<-=0.5")
-      .to(".scene_error", { rotation: -45, x: 20, y: -50, duration: 1.2, delay: 2, ease: "power2.out" }, ">")
 
+      //error content
 
+      .fromTo(
+        ".scene_error",
+        { x: "-100vw", opacity: 0, scale: 1.2 },
+        { x: 0, opacity: 1, scale: 1, duration: 1, delay: 3 },
+        "<-=0.5"
+      )
 
-    
-      .from(".scene_alien-vehicle", { y: "-100vw", duration: 3}, "<+=0.3")
-      .to(".scene_alien-vehicle", { y: "-15", duration: 1, repeat: -1, yoyo: true, ease: "power1.inOut" })
+      .from(".scene_alien-vehicle", { y: "-100vw", duration: 3 }, "<+=0.5")
+      .to(".scene_alien-vehicle", {
+        y: "-15",
+        duration: 1,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+      })
 
-      .to(".scene_error", { y: "-=15", duration: 1, repeat: -1, yoyo: true, ease: "power1.inOut" }, "<")
-      
+      .to(
+        ".scene_error",
+        {
+          rotation: -45,
+          x: 20,
+          y: -50,
+        },
+        ">"
+      )
+      .to(
+        ".scene_error",
+        {
+          duration: 1.2,
+          delay: 2,
+          ease: "power2.out",
+        },
+        ">"
+      )
+      .to(
+        ".scene_error",
+        {
+          y: "-=15",
+          duration: 1,
+          repeat: -1,
+          yoyo: true,
+          ease: "power1.inOut",
+        },
+        "<"
+      )
+
       //remove hobe agula
       .to(
         ".scene__tree-2-right, .scene__mountain-6-left, .scene__cloud-2-left",
         { opacity: 0 },
         "<+=2.5"
       )
-    .from(".scene_leaves_home-button", { x: "-50vh", y: "-100px", opacity: 0,
-       duration: 1, ease: "power2.out", rotation: 20, stagger: 0.2 }, "<+0.1")
+      .from(
+        ".scene_leaves_home-button",
+        {
+          x: "-50vh",
+          y: "-100px",
+          opacity: 0,
+          duration: 1,
+          ease: "power2.out",
+          rotation: 20,
+          stagger: 0.2,
+        },
+        "<-0.5"
+      )
 
-
-      // .from(".scene__city-2-right", { x: "100vw" }, "<-=0.5");
+      .from(".scene__light-middle", { y: "100vw" }, "<-=0.5");
   }
 
   document.addEventListener("DOMContentLoaded", function () {
