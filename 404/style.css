@@ -464,24 +464,34 @@ body {
 .scene__tea img {
   height: calc(var(--index) * 16.74);
 }
-.scene_alien-vehicle{
-  bottom: calc(var(--index) * 6.1);
-  left: calc(var(--index) * 25.6);
-  width: calc(var(--index) * 20);
+.scene_alien-vehicle {
+  /* bottom: calc(var(--index) * 6.1); */
+  bottom: calc(var(--index) * 23.1);
+  left: calc(var(--index) * 30.6);
+  /* width: calc(var(--index) * 20); */
+  width: calc(var(--index) * 16);
   z-index: 11;
 }
-.scene_error{
+.scene_alien_vehicle-light {
+  bottom: calc(var(--index) * 7);
+  left: calc(var(--index) * 26.5);
+  width: calc(var(--index) * 15);
+  opacity: 0;
+  z-index: 10;
+}
+
+.scene_error {
   bottom: calc(var(--index) * 3.1);
   left: calc(var(--index) * 23.6);
   width: calc(var(--index) * 18);
   z-index: 10;
 }
-.scene_leaf_home-button{
+.scene_leaf_home-button {
   bottom: calc(var(--index) * 0);
   left: calc(var(--index) * 27.6);
   width: calc(var(--index) * 10);
   z-index: 12;
-  pointer-events:visible;
+  pointer-events: visible;
 }
 
 @media (max-width: 1199px) and (orientation: portrait) {
@@ -601,13 +611,13 @@ body {
     left: calc(var(--index) * 2);
   }
 
-  .scene_error{
+  .scene_error {
     left: calc(var(--index) * 6);
   }
-  .scene_alien-vehicle{
+  .scene_alien-vehicle {
     left: calc(var(--index) * 8);
   }
-   .scene_leaf_home-button{
+  .scene_leaf_home-button {
     left: calc(var(--index) * 12);
   }
 }

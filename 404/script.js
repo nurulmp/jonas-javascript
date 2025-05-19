@@ -80,9 +80,34 @@
         "<-=0.5"
       )
 
-      .from(".scene_alien-vehicle", { y: "-100vw", duration: 3 }, "<+=0.5")
-      .to(".scene_alien-vehicle", {
-        y: "-15",
+      .from(
+        ".scene_alien-vehicle",
+        {
+          y: "-100vw",
+          duration: 3,
+          ease: "power2.out",
+        },
+        "<+=0.5"
+      )
+
+      .fromTo(
+        ".scene_alien_vehicle-light",
+        {
+          y: "-20vh", // vehicle-এর কাছ থেকে শুরু
+          opacity: 0,
+          scale: 0.8,
+        },
+        {
+          y: "0", // আসল অবস্থানে
+          opacity: 1,
+          scale: 1,
+          duration: 1.4,
+          ease: "power2.out",
+        }
+      )
+
+      .to([".scene_alien-vehicle", ".scene_alien_vehicle-light"], {
+        y: "-=15",
         duration: 1.2,
         repeat: -1,
         yoyo: true,

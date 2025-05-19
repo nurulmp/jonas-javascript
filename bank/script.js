@@ -62,6 +62,14 @@ const btnLoan = document.querySelector(".form__btn--loan");
 const btnClose = document.querySelector(".form__btn--close");
 const btnSort = document.querySelector(".btn--sort");
 
+const inputLoginUsername = document.querySelector(".login__input--user");
+const inputLoginPin = document.querySelector(".login__input--pin");
+const inputTransferTo = document.querySelector(".form__input--to");
+const inputTransferAmount = document.querySelector(".form__input--amount");
+const inputLoanAmount = document.querySelector(".form__input--loan-amount");
+const inputCloseUsername = document.querySelector(".form__input--user");
+const inputClosePin = document.querySelector(".form__input--pin");
+
 const displayMovments = function (movements) {
   containerMovements.innerHTML = "";
   movements.forEach(function (mov, i) {
@@ -83,19 +91,6 @@ const calcPrintBlance = function (movements) {
   labelBlance.textContent = `${blacne}EUR`;
 };
 calcPrintBlance(account1.movements);
-
-const createUsernames = function (accounts) {
-  accounts.forEach(function (acc) {
-    acc.username = acc.owner
-      .toLowerCase()
-      .split(" ")
-      .map((name) => name[0])
-      .join("");
-  });
-};
-createUsernames(accounts);
-console.log(accounts);
-
 const calcDisplaySummery = function (movements) {
   const income = movements
     .filter((move) => move > 0)
@@ -117,3 +112,31 @@ const calcDisplaySummery = function (movements) {
   labelSumInterst.textContent = `${interest}€`;
 };
 calcDisplaySummery(account1.movements);
+
+const createUsernames = function (accounts) {
+  accounts.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(" ")
+      .map((name) => name[0])
+      .join("");
+  });
+};
+createUsernames(accounts);
+
+let currentAccount;
+
+btnLogin.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  currentAccount = accounts.find(
+    (acc) => acc.username === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    //display ui and message
+    labelWellcome.textContent = `Welcome back,${
+      currentAccount.owner.split(" ")[0]
+    }`;
+  }
+});
