@@ -93,7 +93,7 @@
       .fromTo(
         ".scene_alien_vehicle-light",
         {
-          y: "-20vh", // vehicle-এর কাছ থেকে শুরু
+          y: "-15vh", // vehicle-এর কাছ থেকে শুরু
           opacity: 0,
           scale: 0.8,
         },
