@@ -122,6 +122,15 @@ const createUsernames = function (accounts) {
 };
 createUsernames(accounts);
 
+const updateUi =function(acc){
+    //displau movements
+    displayMovments(acc.movements);
+    //display blance
+    calcPrintBlance(acc.movements);
+    //display summery
+    calcDisplaySummery(acc);
+}
+
 let currentAccount;
 
 btnLogin.addEventListener("click", function (e) {
@@ -139,12 +148,22 @@ btnLogin.addEventListener("click", function (e) {
     containerApp.style.opacity = 100;
     inputLoginUsername.value = inputLoginPin.value = "";
     inputLoginPin.blur();
-    //displau movements
-    displayMovments(currentAccount.movements);
-
-    //display blance
-    calcPrintBlance(currentAccount.movements);
-    //display summery
-    calcDisplaySummery(currentAccount);
+  
+    updateUi(currentAccount)
   }
 });
+btnTransfer.addEventListener('click', function(e){
+  e.preventDefault();
+  const amount=Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(acc => acc.username === inputTransferTo.value);
+  console.log(receiverAcc);
+
+  if(amount > 0 && receiverAcc && currentAccount.blacne >= amount && receiverAcc?.username !== currentAccount.username){
+   currentAccount.movements.push(-amount);
+   receiverAcc.movements.push(amount);
+   updateUi(currentAccount)
+   console.log('transfer sucess');
+  }else{
+     console.log('not find');
+  }
+})
