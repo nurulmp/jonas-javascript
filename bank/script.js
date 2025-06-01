@@ -213,3 +213,10 @@ btnSort.addEventListener("click", function (e) {
   displayMovments(currentAccount.movements, !sorted);
   sorted = !sorted;
 });
+
+labelBlance.addEventListener("click", function () {
+  const movementsUi = Array.from(
+    document.querySelectorAll(".movements__value")
+  );
+  console.log(movementsUi.map((el) => el.textContent.replace("€", "")));
+});
