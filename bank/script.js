@@ -70,12 +70,9 @@ const inputLoanAmount = document.querySelector(".form__input--loan-amount");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
-const displayMovments = function (movements, sort = false) {
+const displayMovments = function (movements) {
   containerMovements.innerHTML = "";
-
-  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
-
-  movs.forEach(function (mov, i) {
+  movements.forEach(function (mov, i) {
     const type = mov > 0 ? "deposit" : "withdrawal";
     const html = ` <div class="movements__row">
           <div class="movements__type movements__type--${type}">${
@@ -88,9 +85,9 @@ const displayMovments = function (movements, sort = false) {
   });
 };
 
-const calcDisplayBalance = function (acc) {
-  acc.balance = acc.movements.reduce((acc, cur) => acc + cur, 0);
-  labelBlance.textContent = `${acc.balance}EUR`;
+const calcPrintBlance = function (movements) {
+  const blacne = movements.reduce((acc, curentValue) => acc + curentValue, 0);
+  labelBlance.textContent = `${blacne}EUR`;
 };
 
 const calcDisplaySummery = function (acc) {
@@ -129,7 +126,7 @@ const updateUi = function (acc) {
   //displau movements
   displayMovments(acc.movements);
   //display blance
-  calcDisplayBalance(acc);
+  calcPrintBlance(acc.movements);
   //display summery
   calcDisplaySummery(acc);
 };
@@ -166,12 +163,15 @@ btnTransfer.addEventListener("click", function (e) {
   if (
     amount > 0 &&
     receiverAcc &&
-    currentAccount.balance >= amount &&
+    currentAccount.blacne >= amount &&
     receiverAcc?.username !== currentAccount.username
   ) {
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
     updateUi(currentAccount);
+    console.log("transfer sucess");
+  } else {
+    console.log("not find");
   }
 });
 
