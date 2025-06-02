@@ -216,7 +216,8 @@ btnSort.addEventListener("click", function (e) {
 
 labelBlance.addEventListener("click", function () {
   const movementsUi = Array.from(
-    document.querySelectorAll(".movements__value")
+    document.querySelectorAll(".movements__value"),
+    (el) => Number(el.textContent.replace("€", ""))
   );
-  console.log(movementsUi.map((el) => el.textContent.replace("€", "")));
+  console.log(movementsUi);
 });
