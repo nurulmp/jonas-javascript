@@ -85,9 +85,9 @@ const displayMovments = function (movements) {
   });
 };
 
-const calcPrintBlance = function (movements) {
-  const blacne = movements.reduce((acc, curentValue) => acc + curentValue, 0);
-  labelBlance.textContent = `${blacne}EUR`;
+const calcPrintBlance = function (acc) {
+  acc.blance = acc.movements.reduce((acc, curentValue) => acc + curentValue, 0);
+  labelBlance.textContent = `${acc.blance}€`;
 };
 
 const calcDisplaySummery = function (acc) {
@@ -126,12 +126,25 @@ const updateUi = function (acc) {
   //displau movements
   displayMovments(acc.movements);
   //display blance
-  calcPrintBlance(acc.movements);
+  calcPrintBlance(acc);
   //display summery
   calcDisplaySummery(acc);
 };
 
 let currentAccount;
+
+//fake loged in
+currentAccount = account1;
+updateUi(currentAccount);
+containerApp.style.opacity = 100;
+
+const now = new Date();
+const day = now.getDate();
+const month = now.getMonth() + 1;
+const year = now.getFullYear();
+const hour = now.getHours();
+const min = now.getMinutes();
+labelDate.textContent = `${day}/${month}/${year} ${hour}:${min}`;
 
 btnLogin.addEventListener("click", function (e) {
   e.preventDefault();
@@ -158,18 +171,19 @@ btnTransfer.addEventListener("click", function (e) {
   const receiverAcc = accounts.find(
     (acc) => acc.username === inputTransferTo.value
   );
+  inputTransferAmount.value = inputTransferTo.value = "";
   console.log(receiverAcc);
 
   if (
     amount > 0 &&
     receiverAcc &&
-    currentAccount.blacne >= amount &&
+    currentAccount.blance >= amount &&
     receiverAcc?.username !== currentAccount.username
   ) {
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
     updateUi(currentAccount);
-    console.log("transfer sucess");
+    console.log("transfer success");
   } else {
     console.log("not find");
   }
@@ -220,4 +234,13 @@ labelBlance.addEventListener("click", function () {
     (el) => Number(el.textContent.replace("€", ""))
   );
   console.log(movementsUi);
+});
+
+labelBlance.addEventListener("click", function () {
+  [...document.querySelectorAll(".movements__row")].forEach(function (row, i) {
+    // 0,2,4,6
+    if (i % 2 === 0) row.style.backgroundColor = "orangered";
+    // 0,3,5,7
+    if (i % 3 === 0) row.style.backgroundColor = "blue";
+  });
 });
