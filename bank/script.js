@@ -146,14 +146,6 @@ currentAccount = account1;
 updateUi(currentAccount);
 containerApp.style.opacity = 100;
 
-const now = new Date();
-const day = `${now.getDate()}`.padStart(2, 0);
-const month = `${now.getMonth() + 1}`.padStart(2, 0);
-const year = now.getFullYear();
-const hour = now.getHours();
-const min = now.getMinutes();
-labelDate.textContent = `${day}/${month}/${year} ${hour}:${min}`;
-
 btnLogin.addEventListener("click", function (e) {
   e.preventDefault();
 
@@ -167,6 +159,16 @@ btnLogin.addEventListener("click", function (e) {
       currentAccount.owner.split(" ")[0]
     }`;
     containerApp.style.opacity = 100;
+
+    // create current date and time
+    const now = new Date();
+    const day = `${now.getDate()}`.padStart(2, 0);
+    const month = `${now.getMonth() + 1}`.padStart(2, 0);
+    const year = now.getFullYear();
+    const hour = now.getHours();
+    const min = now.getMinutes();
+    labelDate.textContent = `${day}/${month}/${year} ${hour}:${min}`;
+
     inputLoginUsername.value = inputLoginPin.value = "";
     inputLoginPin.blur();
 
@@ -190,6 +192,11 @@ btnTransfer.addEventListener("click", function (e) {
   ) {
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
+
+    //add transfer date
+    currentAccount.movementsDates.push(new Date().toISOString());
+    receiverAcc.movementsDates.push(new Date().toISOString());
+
     updateUi(currentAccount);
     console.log("transfer success");
   } else {
@@ -206,6 +213,9 @@ btnLoan.addEventListener("click", function (e) {
   ) {
     // add movement
     currentAccount.movements.push(amount);
+
+    //add loan date
+    currentAccount.movementsDates.push(new Date().toISOString());
     // Update ui
     updateUi(currentAccount);
   }
