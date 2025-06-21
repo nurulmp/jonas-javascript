@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JavaScript Array Methods Cheat Sheet (বাংলায়)</title>
+    <style>
+      body {
+        font-family: "SolaimanLipi", Arial, sans-serif;
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 0 15px;
+        color: #222;
+        line-height: 1.6;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #0a74da;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+      }
+      tr {
+        border: 1px solid #555;
+      }
+      th,
+      td {
+        padding: 10px 15px;
+        vertical-align: top;
+        border-right: 1px solid #555;
+      }
+      th:last-child,
+      td:last-child {
+        border-right: 1px solid transparent;
+      }
+      th {
+        background: #0a74da;
+        color: white;
+        text-align: left;
+      }
+      .method-name {
+        font-weight: bold;
+        color: #20435c;
+      }
+      .example {
+        font-family: monospace;
+        padding: 5px 8px;
+        display: inline-block;
+        margin-top: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JavaScript Array Methods Cheat Sheet (বাংলায়)</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>মেথড (Method)</th>
+          <th>কাজ (Purpose)</th>
+          <th>উদাহরণ (Example)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="method-name">push()</td>
+          <td>অ্যারের শেষে একটি আইটেম যোগ করে</td>
+          <td class="example">[1, 2].push(3) → [1, 2, 3]</td>
+        </tr>
+        <tr>
+          <td class="method-name">pop()</td>
+          <td>অ্যারের শেষ আইটেম বাদ দেয়</td>
+          <td class="example">[1, 2, 3].pop() → [1, 2]</td>
+        </tr>
+        <tr>
+          <td class="method-name">shift()</td>
+          <td>অ্যারের প্রথম আইটেম বাদ দেয়</td>
+          <td class="example">[1, 2, 3].shift() → [2, 3]</td>
+        </tr>
+        <tr>
+          <td class="method-name">unshift()</td>
+          <td>অ্যারের শুরুতে আইটেম যোগ করে</td>
+          <td class="example">[2, 3].unshift(1) → [1, 2, 3]</td>
+        </tr>
+        <tr>
+          <td class="method-name">includes()</td>
+          <td>অ্যারে নির্দিষ্ট মান আছে কিনা চেক করে</td>
+          <td class="example">[1, 2].includes(2) → true</td>
+        </tr>
+        <tr>
+          <td class="method-name">indexOf()</td>
+          <td>অ্যারে নির্দিষ্ট মানের ইনডেক্স দেয়</td>
+          <td class="example">[1, 2].indexOf(2) → 1</td>
+        </tr>
+        <tr>
+          <td class="method-name">find()</td>
+          <td>শর্ত অনুযায়ী প্রথম মিলে যাওয়া আইটেম খুঁজে আনে</td>
+          <td class="example">[1, 3].find(x =&gt; x > 2) → 3</td>
+        </tr>
+        <tr>
+          <td class="method-name">findIndex()</td>
+          <td>শর্ত অনুযায়ী প্রথম মিলে যাওয়া আইটেমের ইনডেক্স দেয়</td>
+          <td class="example">[1, 3].findIndex(x =&gt; x > 2) → 1</td>
+        </tr>
+        <tr>
+          <td class="method-name">some()</td>
+          <td>অন্তত একটি আইটেম শর্ত পূরণ করে কিনা পরীক্ষা করে</td>
+          <td class="example">[1, 2].some(x =&gt; x > 1) → true</td>
+        </tr>
+        <tr>
+          <td class="method-name">every()</td>
+          <td>সব আইটেম শর্ত পূরণ করে কিনা পরীক্ষা করে</td>
+          <td class="example">[2, 4].every(x =&gt; x % 2 === 0) → true</td>
+        </tr>
+        <tr>
+          <td class="method-name">forEach()</td>
+          <td>অ্যারের প্রতিটি আইটেমে লুপ চালায়</td>
+          <td class="example">[1, 2].forEach(x =&gt; console.log(x))</td>
+        </tr>
+        <tr>
+          <td class="method-name">map()</td>
+          <td>প্রতিটি আইটেমকে পরিবর্তন করে নতুন অ্যারে তৈরি করে</td>
+          <td class="example">[1, 2].map(x =&gt; x * 2) → [2, 4]</td>
+        </tr>
+        <tr>
+          <td class="method-name">filter()</td>
+          <td>শর্ত পূরণকারী আইটেমগুলো দিয়ে নতুন অ্যারে তৈরি করে</td>
+          <td class="example">[1, 2, 3].filter(x =&gt; x &gt; 1) → [2, 3]</td>
+        </tr>
+        <tr>
+          <td class="method-name">reduce()</td>
+          <td>অ্যারের সব আইটেমকে একক মানে রূপান্তর করে</td>
+          <td class="example">[1, 2, 3].reduce((a, b) =&gt; a + b) → 6</td>
+        </tr>
+        <tr>
+          <td class="method-name">slice()</td>
+          <td>অ্যারের অংশবিশেষ কেটে আনে</td>
+          <td class="example">[1, 2, 3].slice(1) → [2, 3]</td>
+        </tr>
+        <tr>
+          <td class="method-name">splice()</td>
+          <td>অ্যারে থেকে আইটেম সরায় বা যোগ করে</td>
+          <td class="example">arr.splice(1, 1) → index 1 থেকে সরায়</td>
+        </tr>
+        <tr>
+          <td class="method-name">concat()</td>
+          <td>দুই বা তার বেশি অ্যারে যুক্ত করে</td>
+          <td class="example">[1, 2].concat([3]) → [1, 2, 3]</td>
+        </tr>
+        <tr>
+          <td class="method-name">flat()</td>
+          <td>নেস্টেড অ্যারে সমান স্তরে নিয়ে আসে</td>
+          <td class="example">[1, [2, 3]].flat() → [1, 2, 3]</td>
+        </tr>
+        <tr>
+          <td class="method-name">fill()</td>
+          <td>অ্যারের সব ঘর একই মান দিয়ে ভরাট করে</td>
+          <td class="example">[1, 2, 3].fill(0) → [0, 0, 0]</td>
+        </tr>
+        <tr>
+          <td class="method-name">reverse()</td>
+          <td>অ্যারের আইটেম উল্টো করে</td>
+          <td class="example">[1, 2].reverse() → [2, 1]</td>
+        </tr>
+        <tr>
+          <td class="method-name">sort()</td>
+          <td>অ্যারের আইটেম সাজায়</td>
+          <td class="example">[3, 1].sort() → [1, 3]</td>
+        </tr>
+        <tr>
+          <td class="method-name">Array.from()</td>
+          <td>ইটারেবল অবজেক্ট থেকে অ্যারে তৈরি করে</td>
+          <td class="example">Array.from('abc') → ['a', 'b', 'c']</td>
+        </tr>
+        <tr>
+          <td class="method-name">Array.of()</td>
+          <td>নির্দিষ্ট মান দিয়ে অ্যারে তৈরি করে</td>
+          <td class="example">Array.of(1, 2) → [1, 2]</td>
+        </tr>
+        <tr>
+          <td class="method-name">join()</td>
+          <td>অ্যারের আইটেম দিয়ে একটি স্ট্রিং তৈরি করে</td>
+          <td class="example">[1, 2].join('-') → '1-2'</td>
+        </tr>
+        <tr>
+          <td class="method-name">toString()</td>
+          <td>অ্যারের আইটেম স্ট্রিং এ রূপান্তর করে</td>
+          <td class="example">[1, 2].toString() → '1,2'</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
