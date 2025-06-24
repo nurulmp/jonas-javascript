@@ -80,8 +80,6 @@ const formatMovementsDate = function(date){
         const month = `${date.getMonth() + 1}`.padStart(2, 0);
         const year = date.getFullYear();
         return `${day}/${month}/${year}`;
-    
-  
 }
 
 const displayMovments = function (acc, sort = false) {
@@ -158,6 +156,16 @@ let currentAccount;
 currentAccount = account1;
 updateUi(currentAccount);
 containerApp.style.opacity = 100;
+
+//expreminet date
+const now = new Date();
+const options ={
+  hour: 'numeric',
+  minute:'numeric',
+  day:'numeric',
+  month:'2-digit'
+}
+labelDate.textContent = new Intl.DateTimeFormat('en-US',options).format(now);
 
 btnLogin.addEventListener("click", function (e) {
   e.preventDefault();
