@@ -68,7 +68,7 @@ const inputLoanAmount = document.querySelector(".form__input--loan-amount");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
-const formatMovementsDate = function(date){
+const formatMovementsDate = function(date,locale){
     const calcDaysPassed = (date1,date2) =>
      Math.round(Math.abs(date1 - date2) / (1000 * 60 * 60 * 24)) ;
     const daysPssed = calcDaysPassed(new Date() , date);
@@ -76,10 +76,12 @@ const formatMovementsDate = function(date){
     if(daysPssed === 1) return  'Yesterday';
     if(daysPssed <= 7) return  `${daysPssed} days ago`;
    
-        const day = `${date.getDate()}`.padStart(2, 0);
-        const month = `${date.getMonth() + 1}`.padStart(2, 0);
-        const year = date.getFullYear();
-        return `${day}/${month}/${year}`;
+        // const day = `${date.getDate()}`.padStart(2, 0);
+        // const month = `${date.getMonth() + 1}`.padStart(2, 0);
+        // const year = date.getFullYear();
+       // return `${day}/${month}/${year}`;
+      
+        return   Intl.DateTimeFormat(locale).format(date);
 }
 
 const displayMovments = function (acc, sort = false) {
@@ -91,7 +93,7 @@ const displayMovments = function (acc, sort = false) {
     const type = mov > 0 ? "deposit" : "withdrawal";
 
     const date = new Date(acc.movementsDates[i]);
-    const displayDate = formatMovementsDate(date);
+    const displayDate = formatMovementsDate(date, acc.locale);
 
     const html = ` <div class="movements__row">
           <div class="movements__type movements__type--${type}">${
@@ -163,9 +165,12 @@ const options ={
   hour: 'numeric',
   minute:'numeric',
   day:'numeric',
-  month:'2-digit'
+  month:'numeric',
+  // weekday:'long'
 }
-labelDate.textContent = new Intl.DateTimeFormat('en-US',options).format(now);
+// const local=navigator.language;
+// console.log(local);
+labelDate.textContent = new Intl.DateTimeFormat(currentAccount.locale,options).format(now);
 
 btnLogin.addEventListener("click", function (e) {
   e.preventDefault();
@@ -182,13 +187,13 @@ btnLogin.addEventListener("click", function (e) {
     containerApp.style.opacity = 100;
 
     // create current date and time
-    const now = new Date();
-    const day = `${now.getDate()}`.padStart(2, 0);
-    const month = `${now.getMonth() + 1}`.padStart(2, 0);
-    const year = now.getFullYear();
-    const hour =` ${now.getHours()}`.padStart(2, 0);
-    const min =`${ now.getMinutes()}`.padStart(2, 0);
-    labelDate.textContent = `${day}/${month}/${year} ${hour}:${min}`;
+    // const now = new Date();
+    // const day = `${now.getDate()}`.padStart(2, 0);
+    // const month = `${now.getMonth() + 1}`.padStart(2, 0);
+    // const year = now.getFullYear();
+    // const hour =` ${now.getHours()}`.padStart(2, 0);
+    // const min =`${ now.getMinutes()}`.padStart(2, 0);
+    // labelDate.textContent = `${day}/${month}/${year} ${hour}:${min}`;
 
     inputLoginUsername.value = inputLoginPin.value = "";
     inputLoginPin.blur();
