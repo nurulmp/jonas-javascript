@@ -168,40 +168,40 @@ const updateUi = function (acc) {
 };
 
 const startLogOutTimer = function () {
-  //set time to 5 minites
-  let time = 100;
+  const tick = function () {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(time % 60).padStart(2, 0);
 
-  time--;
-  //call the timer every sceond
-  setInterval(function () {
     //in each call, print the remainig time to ui
-    labelTimer.textContent = time;
+    labelTimer.textContent = `${min}:${sec}`;
+
     //when 0 seconds, stop timer and logout  user
-  }, 1000);
+    if (time === 0) {
+      clearInterval(timer);
+      labelWelcome.textContent = "log in to get started";
+      containerApp.style.opacity = 0;
+    }
+
+    time--;
+  };
+  //set time to 5 minites
+  let time = 30;
+
+  //call the timer every sceond
+  tick();
+  const timer = setInterval(tick, 1000);
+
+  return timer;
 };
 
-let currentAccount;
+let currentAccount, timer;
 
 //fake loged in
-currentAccount = account1;
-updateUi(currentAccount);
-containerApp.style.opacity = 100;
+// currentAccount = account1;
+// updateUi(currentAccount);
+// containerApp.style.opacity = 100;
 
-//expreminet date
-const now = new Date();
-const options = {
-  hour: "numeric",
-  minute: "numeric",
-  day: "numeric",
-  month: "numeric",
-  // weekday:'long'
-};
-// const local=navigator.language;
-// console.log(local);
-labelDate.textContent = new Intl.DateTimeFormat(
-  currentAccount.locale,
-  options
-).format(now);
+//current  date
 
 btnLogin.addEventListener("click", function (e) {
   e.preventDefault();
@@ -217,6 +217,21 @@ btnLogin.addEventListener("click", function (e) {
     }`;
     containerApp.style.opacity = 100;
 
+    const now = new Date();
+    const options = {
+      hour: "numeric",
+      minute: "numeric",
+      day: "numeric",
+      month: "numeric",
+      // weekday:'long'
+    };
+    // const local=navigator.language;
+
+    labelDate.textContent = new Intl.DateTimeFormat(
+      currentAccount.locale,
+      options
+    ).format(now);
+
     // create current date and time
     // const now = new Date();
     // const day = `${now.getDate()}`.padStart(2, 0);
@@ -228,6 +243,9 @@ btnLogin.addEventListener("click", function (e) {
 
     inputLoginUsername.value = inputLoginPin.value = "";
     inputLoginPin.blur();
+
+    if (timer) clearInterval(timer);
+    timer = startLogOutTimer();
 
     updateUi(currentAccount);
   }
@@ -255,6 +273,11 @@ btnTransfer.addEventListener("click", function (e) {
     receiverAcc.movementsDates.push(new Date().toISOString());
 
     updateUi(currentAccount);
+
+    //retset timer
+    clearInterval(timer);
+    timer = startLogOutTimer(timer);
+
     console.log("transfer success");
   } else {
     console.log("not find");
@@ -276,6 +299,9 @@ btnLoan.addEventListener("click", function (e) {
       currentAccount.movementsDates.push(new Date().toISOString());
       // Update ui
       updateUi(currentAccount);
+      //retset timer
+      clearInterval(timer);
+      timer = startLogOutTimer(timer);
     }, 2500);
   }
 });
