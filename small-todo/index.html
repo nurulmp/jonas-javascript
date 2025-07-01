@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="input-section">
+        <input class="input_task" type="text" placeholder="Task to be done.." />
+        <button class="add-btn">Add</button>
+      </div>
+
+      <div class="todo-list" id="tasks">
+        <div class="todo-item completed">
+          <span>breakfast with jim</span>
+          <button class="delete">🗑️</button>
+        </div>
+        <div class="todo-item">
+          <span>meeting with tom</span>
+          <button class="delete">🗑️</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  const addBtn = document.querySelector(".add-btn");
+  const taskInput = document.querySelector(".input_task");
+  const tasks = document.querySelector("#tasks");
+  const singleTask = document.querySelector(".todo-item");
+  const removeTask = document.querySelectorAll(".delete");
+
+  addBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (taskInput.value.length === 0) {
+      alert("input empty please add task");
+    } else {
+      tasks.innerHTML += `
+      <div class="todo-item">
+          <span>${taskInput.value}</span>
+          <button class="delete">🗑️</button>
+        </div>`;
+      taskInput.value = "";
+
+      for (let i = 0; i < removeTask.length; i++) {
+        console.log(removeTask[i]);
+        removeTask[i].onclick = function () {
+          console.log(i);
+          this.parentNode.remove();
+        };
+      }
+    }
+  });
+</script>
